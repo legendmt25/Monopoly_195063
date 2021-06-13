@@ -14,11 +14,11 @@ namespace MonopolyGame
     {
         Monopoly monopoly;
         Dice dice;
-        bool gameOver = false;
         public MonopolyGame()
         {
             InitializeComponent();
-            monopoly = new Monopoly(this);
+            new NumberPlayers().ShowDialog();
+            monopoly = new Monopoly(this, NumberPlayers.players);
             ActionBuy.parent = this;
             foreach (Card card in Monopoly.map) { if (card as PlaceCard != null) { listMap.Items.Add(((PlaceCard)card).print()); } else { listMap.Items.Add(card.ToString()); } }
         }
@@ -26,7 +26,9 @@ namespace MonopolyGame
         public void update()
         {
             Graphics g = panelPlayer.CreateGraphics();
-            g.Clear(Monopoly.players.ElementAt(Monopoly.next).color);
+            //g.Clear(Monopoly.players.ElementAt(Monopoly.next).color);
+            Pen pen = new Pen(Monopoly.players.ElementAt(Monopoly.next).color, 1.0f);
+            g.DrawRectangle(pen, 0, 0, panelPlayer.Width - 1, panelPlayer.Height - 1);
             labelChance.Text = "";
             labelSurprise.Text = "";
             labelMoney.Text = "";
@@ -126,5 +128,10 @@ namespace MonopolyGame
         }
 
         private void labelPlayer_Paint(object sender, PaintEventArgs e) {}
+
+        private void listMap_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

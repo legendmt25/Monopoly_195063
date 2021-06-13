@@ -39,7 +39,7 @@ namespace MonopolyGame
             new ChanceCard("", (Player player) => { }),
             new PlaceCard("Марсеј", 15000, 9000, 9000, new List<int>(){ 4000, 7500, 12000, 18000, 25000, 33000 }),
             new PlaceCard("Монако", 20000, 14000, 14000, new List<int>(){ 10000, 16000, 22000, 30000, 40000, 50000 }),
-            new OtherCard("Parking", (Player player) => { }),
+            new OtherCard("Parking", (Player player) => { --Monopoly.next; }),
             new PlaceCard("Рим", 15000, 10000, 10000, new List<int>(){ 7500, 11000, 17000, 23000, 30000, 36000 }),
             new OtherCard("Бомба 20000 ден", (Player player) => { player.money -= 20000; player.position = 0; }),
             new PlaceCard("Верона", 14000, 10000, 10000, new List<int>(){ 4000, 8000, 15000, 20000, 27000, 32000 }),

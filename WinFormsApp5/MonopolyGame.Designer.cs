@@ -145,10 +145,11 @@ namespace MonopolyGame
             // 
             this.listMap.FormattingEnabled = true;
             this.listMap.ItemHeight = 15;
-            this.listMap.Location = new System.Drawing.Point(12, 224);
+            this.listMap.Location = new System.Drawing.Point(12, 239);
             this.listMap.Name = "listMap";
-            this.listMap.Size = new System.Drawing.Size(563, 214);
+            this.listMap.Size = new System.Drawing.Size(563, 199);
             this.listMap.TabIndex = 6;
+            this.listMap.SelectedIndexChanged += new System.EventHandler(this.listMap_SelectedIndexChanged);
             // 
             // panelPlayer
             // 
